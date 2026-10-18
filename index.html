@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Flights and accommodation options for Seville over New Year, priced per person.">
+<meta name="theme-color" content="#0D1836">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Seville New Year 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<style>
+/* Layout: night-blue hero (New Year's Eve) with a countdown, ending in a band of Andalusian star tiles;
+   then light "daytime" sections: options → group sizes → flights → areas (street-sign plaques) → places → builder (night panel) → small print. */
+:root {
+  --page: #F4F5F8;
+  --card: #FFFFFF;
+  --ink: #111A2E;
+  --muted: #5B6478;
+  --line: #E1E4EC;
+  --night: #0D1836;
+  --night-2: #18275A;
+  --night-ink: #F3F5FB;
+  --night-muted: #A9B3CF;
+  --naranja: #D9581A;
+  --naranja-soft: #FCE9DC;
+  --azulejo: #1E4FC2;
+  --azulejo-soft: #E6ECFA;
+  --hoja: #2B6D4D;
+  --hoja-soft: #E2F0E8;
+  --glow: rgba(233, 120, 40, 0.20);
+  /* Ceramic colours stay the same in both themes, like real tiles */
+  --tile-white: #FFFFFF;
+  --tile-blue: #1E4FC2;
+  --tile-ochre: #E2A23A;
+  --f-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #0A1229; --card: #111C3C; --ink: #EDF0F8; --muted: #A3ADC9; --line: #25315C;
+    --night: #070E22; --night-2: #13204A; --night-ink: #F3F5FB; --night-muted: #A9B3CF;
+    --naranja: #FF8A45; --naranja-soft: #3A2314; --azulejo: #8EA9FF; --azulejo-soft: #1A2A5E;
+    --hoja: #63C995; --hoja-soft: #12301F; --glow: rgba(255, 138, 69, 0.16);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #0A1229; --card: #111C3C; --ink: #EDF0F8; --muted: #A3ADC9; --line: #25315C;
+  --night: #070E22; --night-2: #13204A; --night-ink: #F3F5FB; --night-muted: #A9B3CF;
+  --naranja: #FF8A45; --naranja-soft: #3A2314; --azulejo: #8EA9FF; --azulejo-soft: #1A2A5E;
+  --hoja: #63C995; --hoja-soft: #12301F; --glow: rgba(255, 138, 69, 0.16);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--page); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: var(--azulejo); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--naranja); outline-offset: 3px; }
+.num { font-variant-numeric: tabular-nums; }
+.display { font-family: var(--f-display); font-stretch: 70%; font-weight: 800; letter-spacing: -0.01em; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background:
+    radial-gradient(60% 80% at 88% 0%, var(--glow), transparent 70%),
+    linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%);
+  color: var(--night-ink);
+}
+.hero .wrap { padding-block: 40px 44px; display: grid; gap: 22px; }
+.eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--night-muted); }
+.eyebrow b { color: var(--tile-ochre); font-weight: 600; }
+.hero h1 {
+  margin: 0; font-family: var(--f-display); font-stretch: 66%; font-weight: 850;
+  font-size: clamp(60px, 14vw, 148px); line-height: 0.86; letter-spacing: -0.02em; text-transform: uppercase;
+}
+.hero h1 span { display: block; color: #FF9A5C; }
+.hero .lede { margin: 0; max-width: 56ch; font-size: 17px; color: var(--night-muted); }
+.hero-row { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: flex-end; }
+.countdown { display: flex; align-items: baseline; gap: 12px; }
+.countdown .d { font-family: var(--f-display); font-stretch: 66%; font-weight: 800; font-size: 64px; line-height: 0.9; color: var(--tile-ochre); }
+.countdown .t { font-size: 15px; line-height: 1.3; color: var(--night-ink); max-width: 22ch; }
+.countdown .t small { display: block; color: var(--night-muted); font-size: 13px; margin-top: 2px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.facts li { font-size: 13.5px; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); color: var(--night-ink); background: rgba(255,255,255,0.04); }
+.facts li.live { border-color: transparent; background: rgba(99, 201, 149, 0.16); color: #9BE3BD; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14px; font-weight: 600; }
+.jump a { color: var(--night-ink); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 1px; }
+.jump a:hover { border-bottom-color: var(--tile-ochre); }
+
+.tiles {
+  height: 36px;
+  background-color: var(--tile-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' fill='%23ffffff'/%3E%3Cg fill='%231E4FC2'%3E%3Crect x='10' y='10' width='16' height='16'/%3E%3Crect x='10' y='10' width='16' height='16' transform='rotate(45 18 18)'/%3E%3Cpath d='M0 0h7L0 7zM36 0h-7l7 7zM0 36h7l-7-7zM36 36h-7l7-7z'/%3E%3C/g%3E%3Ccircle cx='18' cy='18' r='3.6' fill='%23E2A23A'/%3E%3C/svg%3E");
+  background-size: 36px 36px;
+  border-block: 3px solid var(--tile-ochre);
+}
+
+/* ---------- Sections ---------- */
+main.wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 64px; padding-block: 48px 64px; }
+main.wrap > * { min-width: 0; }
+.sec-head { display: grid; gap: 8px; margin-bottom: 22px; }
+.kicker { font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--naranja); }
+h2 { margin: 0; font-family: var(--f-display); font-stretch: 70%; font-weight: 800; font-size: clamp(32px, 5vw, 46px); line-height: 1; letter-spacing: -0.01em; text-wrap: balance; }
+.sec-head p { margin: 0; max-width: 66ch; color: var(--muted); }
+
+/* Options */
+.opts { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.opt { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.opt-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.tag { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+.t-b { background: var(--hoja-soft); color: var(--hoja); }
+.t-m { background: var(--azulejo-soft); color: var(--azulejo); }
+.t-l { background: var(--naranja-soft); color: var(--naranja); }
+.opt-nights { font-size: 13px; color: var(--muted); font-weight: 600; }
+.opt-price { white-space: nowrap; font-family: var(--f-display); font-stretch: 66%; font-weight: 800; font-size: clamp(46px, 5vw, 58px); line-height: 0.9; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.opt-price .dash { color: var(--muted); font-weight: 500; margin: 0 2px; }
+.opt-sub { font-size: 14px; color: var(--muted); margin-top: -6px; }
+.opt p { margin: 0; }
+.opt dl { margin: 0; display: grid; gap: 6px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 14.5px; }
+.opt dl div { display: flex; justify-content: space-between; gap: 12px; }
+.opt dt { color: var(--muted); }
+.opt dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.opt-where { font-size: 14px; color: var(--muted); }
+.opt-links { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 14px; font-weight: 600; }
+
+/* Group sizes */
+.sizes { margin-top: 18px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.sizes-head { padding: 20px 22px 14px; display: grid; gap: 6px; }
+.sizes-head h3 { margin: 0; font-size: 18px; font-weight: 700; }
+.sizes-head p { margin: 0; color: var(--muted); font-size: 14.5px; max-width: 72ch; }
+.scroll-x { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+.size-table { min-width: 600px; }
+.size-table th, .size-table td { padding: 13px 16px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
+.size-table thead th { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); background: var(--page); }
+.size-table thead th.b { color: var(--hoja); } .size-table thead th.m { color: var(--azulejo); } .size-table thead th.l { color: var(--naranja); }
+.size-table tbody th { font-family: var(--f-display); font-stretch: 70%; font-weight: 800; font-size: 26px; line-height: 1; white-space: nowrap; }
+.size-table tbody th small { display: block; font-family: var(--f-body); font-stretch: 100%; font-weight: 500; font-size: 12px; color: var(--muted); margin-top: 4px; }
+.size-table td .v { font-weight: 700; font-size: 19px; }
+.size-table td .s { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.size-table tr.ten { background: var(--naranja-soft); }
+
+/* Flights */
+.route { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+.route .code { font-family: var(--f-display); font-stretch: 66%; font-weight: 800; font-size: 44px; line-height: 1; }
+.route .code small { display: block; font-family: var(--f-body); font-stretch: 100%; font-weight: 500; font-size: 13px; color: var(--muted); }
+.route .line { flex: 1 1 80px; min-width: 60px; max-width: 240px; height: 2px; background: repeating-linear-gradient(90deg, var(--muted) 0 6px, transparent 6px 12px); position: relative; }
+.route .line span { position: absolute; left: 50%; top: -22px; transform: translateX(-50%); font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.fl-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; min-width: 0; }
+.panel h3 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.panel td { padding: 13px 18px; border-top: 1px solid var(--line); vertical-align: top; font-size: 15px; }
+.panel tr:first-child td { border-top: 0; }
+.panel td.p { text-align: right; font-weight: 700; white-space: nowrap; }
+.panel td .t { display: block; font-size: 13px; color: var(--muted); }
+.panel tr.pick td { background: var(--hoja-soft); }
+.pill { display: inline-block; font-size: 10.5px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; background: var(--hoja); color: var(--card); margin-left: 8px; vertical-align: 2px; }
+.combos { margin-top: 16px; }
+.combos td:first-child { font-weight: 600; }
+
+/* Areas as Seville street-name tiles */
+.areas { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom: 36px; }
+.area { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.plaque {
+  justify-self: start; background: var(--tile-white); color: var(--tile-blue);
+  font-family: var(--f-display); font-stretch: 75%; font-weight: 700; font-size: 16px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 7px 14px; border: 2px solid var(--tile-blue); border-radius: 4px;
+  box-shadow: 0 0 0 3px var(--tile-white), 0 0 0 5px var(--tile-ochre);
+  margin: 5px;
+}
+.area .fit { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.fit.top { color: var(--hoja); } .fit.ok { color: var(--azulejo); } .fit.meh { color: var(--naranja); }
+.area p { margin: 0; font-size: 14.5px; color: var(--muted); }
+
+/* Places */
+.tier + .tier { margin-top: 36px; }
+.tier-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 14px; }
+.tier-head h3 { margin: 0; font-family: var(--f-display); font-stretch: 70%; font-weight: 800; font-size: 28px; line-height: 1; }
+.tier-head span { color: var(--muted); font-size: 14.5px; }
+.places { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); }
+.place { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.place-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.place h4 { margin: 0; font-size: 18px; font-weight: 700; line-height: 1.25; }
+.sleeps { flex: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.place .meta { font-size: 14px; color: var(--muted); }
+.place p { margin: 0; font-size: 14.5px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chips span { font-size: 12.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--page); color: var(--ink); border: 1px solid var(--line); }
+.chips span.ok { background: var(--hoja-soft); color: var(--hoja); border-color: transparent; }
+.chips span.feat { background: var(--azulejo-soft); color: var(--azulejo); border-color: transparent; }
+.prices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-variant-numeric: tabular-nums; }
+.prices div { background: var(--page); border-radius: 12px; padding: 10px 12px; }
+.prices .d { display: block; font-size: 12px; color: var(--muted); }
+.prices .t { font-weight: 800; font-size: 19px; }
+.prices .e { display: block; font-size: 12.5px; color: var(--muted); }
+.prices .na { color: var(--muted); font-weight: 600; font-size: 14px; }
+.place-foot { display: flex; justify-content: flex-end; font-size: 14px; font-weight: 600; padding-top: 4px; }
+
+/* Builder (night panel) */
+.builder { background: linear-gradient(180deg, var(--night), var(--night-2)); color: var(--night-ink); border-radius: 22px; padding: 24px; display: grid; gap: 20px; }
+.builder .kicker { color: var(--tile-ochre); }
+.builder h2 { color: var(--night-ink); }
+.builder .sec-head { margin-bottom: 0; }
+.builder .sec-head p { color: var(--night-muted); }
+.b-controls { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.b-controls label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--night-muted); min-width: 0; }
+.b-controls select {
+  font: 500 16px var(--f-body); letter-spacing: 0; text-transform: none; color: var(--night-ink);
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 11px 12px; width: 100%;
+  color-scheme: dark;
+}
+.b-out { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; border-top: 1px solid rgba(255,255,255,0.14); padding-top: 18px; }
+.b-out .big { font-family: var(--f-display); font-stretch: 66%; font-weight: 800; font-size: 64px; line-height: 0.9; color: #FF9A5C; font-variant-numeric: tabular-nums; }
+.b-out .big small { font-family: var(--f-body); font-stretch: 100%; font-size: 15px; font-weight: 500; color: var(--night-muted); margin-left: 6px; }
+.b-out .bd { color: var(--night-muted); font-size: 14.5px; font-variant-numeric: tabular-nums; }
+.b-out .na { color: #FFB38A; font-weight: 600; }
+.copy-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { font: 700 15px var(--f-body); border-radius: 999px; padding: 11px 18px; cursor: pointer; border: 0; background: var(--tile-ochre); color: #1A1406; }
+.btn:hover { filter: brightness(1.06); }
+.copied { font-size: 14px; color: #9BE3BD; font-weight: 600; }
+#copyFallback { width: 100%; min-height: 190px; font: 13px ui-monospace, Menlo, Consolas, monospace; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; background: rgba(0,0,0,0.25); color: var(--night-ink); }
+
+/* Small print */
+.notes { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.note h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+.note ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: 15px; }
+.note li::marker { color: var(--naranja); }
+.sources { font-size: 13.5px; color: var(--muted); }
+.sources ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; }
+footer.end .tiles { height: 24px; background-size: 24px 24px; border-bottom: 0; }
+
+@media (max-width: 520px) {
+  .hero .wrap { padding-block: 32px 36px; }
+  .opt-price, .b-out .big { font-size: 54px; }
+  .countdown .d { font-size: 54px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero h1, .hero .lede, .hero-row { animation: rise 0.7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero .lede { animation-delay: 0.08s; } .hero-row { animation-delay: 0.16s; }
+  @keyframes rise { from { transform: translateY(8px); } to { transform: none; } }
+}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><b>Nochevieja 2026</b> · Manchester → Sevilla</span>
+    <h1>Seville <span>for New Year</span></h1>
+    <p class="lede">Three ways to do it, from a budget version to staying right in the middle of the tapas bars. Numbers aren't fixed yet, so everything is per person and stays roughly the same whether 4 or 16 of us come.</p>
+    <div class="hero-row">
+      <div class="countdown" aria-live="off">
+        <span class="d num" id="days">74</span>
+        <span class="t">days to the twelve grapes<small>One on each chime at midnight, the Spanish way</small></span>
+      </div>
+      <ul class="facts">
+        <li>Out Wed 30 Dec</li>
+        <li>Back Sat 2 or Sun 3 Jan</li>
+        <li>Numbers TBC</li>
+        <li class="live">Live prices · 18 Oct</li>
+      </ul>
+    </div>
+    <nav class="jump" aria-label="Jump to">
+      <a href="#options">Options</a><a href="#flights">Flights</a><a href="#stay">Where to stay</a><a href="#build">Build your own</a>
+    </nav>
+  </div>
+</header>
+<div class="tiles" aria-hidden="true"></div>
+
+<main class="wrap">
+  <section id="options" aria-labelledby="h-opts">
+    <div class="sec-head">
+      <span class="kicker">The options</span>
+      <h2 id="h-opts">Three ways to do it</h2>
+      <p>Flights and accommodation together, per person. Each range covers anything from 4 to 16 people.</p>
+    </div>
+    <div class="opts" id="packages"></div>
+
+    <div class="sizes">
+      <div class="sizes-head">
+        <h3>Price by group size</h3>
+        <p>The price per person barely moves. Flights cost the same each for anything up to 10, and the accommodation grows by adding or dropping a flat. Odd numbers like 5, 7 or 9 cost a little more each because someone's paying for an empty bed.</p>
+      </div>
+      <div class="scroll-x"><table class="size-table" id="size-table"></table></div>
+    </div>
+  </section>
+
+  <section id="flights" aria-labelledby="h-flights">
+    <div class="sec-head">
+      <span class="kicker">Part 1</span>
+      <h2 id="h-flights">Flights</h2>
+      <p>Ryanair direct. Prices are per person, the same for any group up to 10 (a bit more for 16), Basic fare with a small under-seat bag.</p>
+    </div>
+    <div class="route" aria-label="Manchester to Seville, about 2 hours 50 minutes">
+      <div class="code">MAN<small>Manchester</small></div>
+      <div class="line"><span>2 h 50 m direct</span></div>
+      <div class="code">SVQ<small>Sevilla</small></div>
+    </div>
+    <div class="fl-grid">
+      <div class="panel"><h3>Out to Seville</h3><table><tbody id="fl-out"></tbody></table></div>
+      <div class="panel"><h3>Back to Manchester</h3><table><tbody id="fl-back"></tbody></table></div>
+    </div>
+    <div class="panel combos"><h3>Return, per person</h3><table><tbody id="fl-combos"></tbody></table></div>
+  </section>
+
+  <section id="stay" aria-labelledby="h-stay">
+    <div class="sec-head">
+      <span class="kicker">Part 2</span>
+      <h2 id="h-stay">Where to stay</h2>
+      <p>All entire flats or houses on Airbnb, free over New Year when checked. They come in 4s, 6s and 10s, so we can combine them to fit however many come. Splitting across smaller flats is usually cheaper than one big house.</p>
+    </div>
+
+    <div class="areas" aria-label="Areas">
+      <div class="area"><span class="plaque">Alfalfa</span><span class="fit top">Best for being in it</span><p>Tapas and wine bars, busy at night, between the main squares and Santa Cruz. Plaza Nueva is next door.</p></div>
+      <div class="area"><span class="plaque">Alameda</span><span class="fit top">Best for nightlife</span><p>The bar strip, bohemian and lively. A short walk north of the centre.</p></div>
+      <div class="area"><span class="plaque">Santa Cruz</span><span class="fit ok">Best for sights</span><p>Walk to the Cathedral and Alcázar, plenty of restaurants. Arenal is just beside it.</p></div>
+      <div class="area"><span class="plaque">Triana</span><span class="fit ok">Across the river</span><p>Riverside bars and flamenco, a little further to walk into the centre.</p></div>
+      <div class="area"><span class="plaque">Macarena</span><span class="fit meh">Cheaper, further out</span><p>Outside the main centre. Fine for sleeping, longer walks back.</p></div>
+    </div>
+
+    <div id="tiers"></div>
+  </section>
+
+  <section id="build" class="builder" aria-labelledby="h-build">
+    <div class="sec-head">
+      <span class="kicker">Mix and match</span>
+      <h2 id="h-build">Build your own</h2>
+      <p>Pick how many are coming, dates and somewhere to stay to see the cost per person.</p>
+    </div>
+    <div class="b-controls">
+      <label for="b-size">How many
+        <select id="b-size">
+          <option value="4">4 people</option>
+          <option value="6">6 people</option>
+          <option value="8">8 people</option>
+          <option value="10" selected>10 people</option>
+          <option value="16">16 people</option>
+        </select>
+      </label>
+      <label for="b-dates">Dates
+        <select id="b-dates">
+          <option value="w2">Wed 30 Dec → Sat 2 Jan · 3 nights</option>
+          <option value="w3">Wed 30 Dec → Sun 3 Jan · 4 nights</option>
+        </select>
+      </label>
+      <label for="b-flight">Flight out
+        <select id="b-flight">
+          <option value="e">05:50 · £56.99</option>
+          <option value="l">19:00 · £82.99</option>
+        </select>
+      </label>
+      <label for="b-stay">Where you stay
+        <select id="b-stay"></select>
+      </label>
+    </div>
+    <div class="b-out" id="b-out" aria-live="polite"></div>
+    <div class="copy-row">
+      <button type="button" class="btn" id="copyBtn">Copy summary for the group chat</button>
+      <span class="copied" id="copied" hidden>Copied</span>
+    </div>
+    <textarea id="copyFallback" readonly hidden aria-label="Summary text to copy"></textarea>
+  </section>
+
+  <section aria-labelledby="h-notes">
+    <div class="sec-head"><span class="kicker">Small print</span><h2 id="h-notes">Before anyone pays</h2></div>
+    <div class="notes">
+      <div class="note">
+        <h3>Flights</h3>
+        <ul>
+          <li>Fares rise as seats sell. Saturday 2 Jan had only 1 seat left at the cheapest price, so book everyone together once people commit.</li>
+          <li>Add a 10 kg cabin bag each way if you want one.</li>
+          <li>Fares were identical for 6 and 10 seats. Booking 16 raised them by £12–£20 each.</li>
+          <li>Coming out Tuesday 29th instead costs £126.50 more each, plus an extra night.</li>
+          <li>Flexible on the way back? Monday 4 Jan was £100.99, about half the weekend price.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Accommodation</h3>
+        <ul>
+          <li>Places go fast over New Year. Everything here was free on 18 Oct.</li>
+          <li>Several flats have fewer beds than guests, so some people share. Bed counts are on each card.</li>
+          <li>EDomus Muralla wasn't bookable for 30 Dec – 2 Jan, only to the 3rd.</li>
+          <li>Most show free cancellation, but read each listing's terms and house rules. Parties are usually banned.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sources" aria-labelledby="h-sources">
+    <strong id="h-sources">Sources</strong>
+    <ul>
+      <li><a href="https://www.ryanair.com/gb/en/trip/flights/select?adults=10&teens=0&children=0&infants=0&dateOut=2026-12-30&dateIn=2027-01-03&isConnectedFlight=false&discount=0&isReturn=true&promoCode=&originIata=MAN&destinationIata=SVQ" target="_blank" rel="noopener">Ryanair: Manchester ⇄ Seville</a> (checked 18 Oct 2026)</li>
+      <li><a href="https://www.airbnb.co.uk/s/Seville--Spain/homes?checkin=2026-12-30&checkout=2027-01-02&adults=10&room_types%5B%5D=Entire%20home%2Fapt" target="_blank" rel="noopener">Airbnb: Seville over New Year</a> (checked 18 Oct 2026). Each listing is linked on its card.</li>
+      <li>Areas: <a href="https://www.lonelyplanet.com/articles/best-neighborhoods-in-seville" target="_blank" rel="noopener">Lonely Planet</a> and <a href="https://breathingtravel.com/where-to-stay-in-seville/" target="_blank" rel="noopener">Breathing Travel</a></li>
+    </ul>
+  </section>
+</main>
+<footer class="end"><div class="tiles" aria-hidden="true"></div></footer>
+
+<script>
+(function () {
+  // Countdown to midnight on 31 Dec in Seville (CET, UTC+1)
+  try {
+    var target = Date.UTC(2026, 11, 31, 23, 0, 0);
+    var days = Math.max(0, Math.ceil((target - Date.now()) / 86400000));
+    document.getElementById("days").textContent = String(days);
+  } catch (e) {}
+
+  // Live data, checked 18 Oct 2026. Flight fares were identical for 1–10 seats; 16 seats priced higher.
+  var OUT = [
+    { id: "wed_e", day: "Wed 30 Dec", time: "05:50 → 09:40", p: 56.99, p16: 59.99, pick: true },
+    { id: "wed_l", day: "Wed 30 Dec", time: "19:00 → 22:50", p: 82.99, p16: 82.99 },
+    { id: "tue", day: "Tue 29 Dec", time: "09:10 → 13:00", p: 183.49, p16: 199.24 }
+  ];
+  var BACK = [
+    { id: "sat", day: "Sat 2 Jan", time: "21:40 → 23:35", p: 183.99, p16: 192.99 },
+    { id: "sun", day: "Sun 3 Jan", time: "20:20 → 22:15", p: 201.11, p16: 217.91 }
+  ];
+  function fo(id) { return OUT.filter(function (x) { return x.id === id; })[0]; }
+  function fb(id) { return BACK.filter(function (x) { return x.id === id; })[0]; }
+  var DATES = { w2: { label: "Wed 30 Dec → Sat 2 Jan", nights: 3, back: "sat" }, w3: { label: "Wed 30 Dec → Sun 3 Jan", nights: 4, back: "sun" } };
+  function flight(n, dates, outId) {
+    var o = fo(outId || "wed_e"), b = fb(DATES[dates].back);
+    return n > 10 ? o.p16 + b.p16 : o.p + b.p;
+  }
+  function room(id, n, w) { return "https://www.airbnb.co.uk/rooms/" + id + "?check_in=2026-12-30&check_out=2027-01-0" + (w === "w2" ? "2" : "3") + "&adults=" + n; }
+
+  // Group totals in GBP: w2 = 30 Dec–2 Jan (3 nights), w3 = 30 Dec–3 Jan (4 nights)
+  var P = {
+    s30: { name: "S30 Central House with Terrace", short: "S30 House", sleeps: 4, area: "Old town", rooms: "2 bedrooms · 4 beds · 1 bathroom", rating: "4.67 (95)", free: true, w2: 582, w3: 733, id: "874561160897662255",
+      blurb: "Little two-storey house with its own rooftop. Cheapest 4-person place we found in the centre." },
+    virgen: { name: "Virgen Carmen Dolorosa", short: "Virgen Carmen", sleeps: 6, area: "Plaza de la Alameda", rooms: "3 bedrooms · 4 beds · 2 bathrooms", rating: "4.86 (21)", free: true, w2: 644, w3: 824, id: "1084582776037499354",
+      blurb: "Right on the Alameda, Seville's main bar strip. Superhost. Cheapest 6-person flat we found that's still central." },
+    betis: { name: "Triana on Betis Street", short: "Betis Street", sleeps: 4, area: "Calle Betis, Triana", rooms: "2 bedrooms · 3 beds · 2 bathrooms", rating: "4.77 (248)", free: true, w2: 666, w3: 855, id: "50579456",
+      blurb: "On the riverside strip of bars, over the bridge from the centre." },
+    edomus: { name: "EDomus Muralla Suites", short: "EDomus", sleeps: 10, area: "Ronda de Capuchinos, Macarena edge", rooms: "4 bedrooms + sofa bed · 5 beds · 2 bathrooms", rating: "New", free: true, w2: null, w3: 1746, id: "1785413483381231399",
+      blurb: "Cheapest way to keep 10 under one roof, but it's on the edge of the old town and most people share." },
+    aoa: { name: "AoA Plaza Nueva Luxury Apartments", short: "AoA Plaza Nueva", sleeps: 4, area: "Plaza Nueva", rooms: "2 bedrooms · 2 bathrooms", rating: "4.92 (106)", free: true, w2: 1108, w3: 990, id: "1155604743029743719",
+      blurb: "On Plaza Nueva, right in the middle of everything. Cheaper for 4 nights than 3." },
+    modern: { name: "Modern apartment for six", short: "Modern apt", sleeps: 6, area: "Old town", rooms: "3 bedrooms · 5 beds · 3 bathrooms", rating: "4.79 (48)", free: true, w2: 1036, w3: 1294, id: "1547920309668800398",
+      blurb: "Good-value 6-sleeper with a bathroom per bedroom." },
+    aloha: { name: "Alohamundi Triana", short: "Alohamundi", sleeps: 10, area: "Triana", rooms: "5 bedrooms · 7 beds · 3 bathrooms", rating: "4.67 (168)", free: true, w2: 2490, w3: 3181, id: "51356273", feature: "Private pool",
+      blurb: "Whole house with its own pool, a short walk over the bridge." },
+    loft: { name: "Quiet & charming loft", short: "Alfalfa loft", sleeps: 4, area: "Alfalfa, by the Cathedral", rooms: "2 bedrooms · 3 beds · 1 bathroom", rating: "4.79 (339)", free: true, w2: 641, w3: 815, id: "49135384",
+      blurb: "Well-reviewed loft in the tapas-bar streets. Great location for the money." },
+    patio: { name: "Patio de la Magdalena 2B", short: "Patio Magdalena", sleeps: 6, area: "Alfalfa / Magdalena", rooms: "3 bedrooms · 3 double beds · 2 bathrooms", rating: "4.85 (110)", free: true, w2: 1378, w3: 1766, id: "1153365742828042432",
+      blurb: "Central flat in the tapas-bar streets. Pairs well with the loft or AoA Plaza Nueva." },
+    cabildo: { name: "Cabildo Cathedral", short: "Cabildo Cathedral", sleeps: 10, area: "Plaza del Cabildo, by the Cathedral", rooms: "5 bedrooms · 10 beds · 3 bathrooms", rating: "4.93 (103)", free: false, w2: 3372, w3: 3372, id: "28560395",
+      blurb: "10 together a step from the Cathedral, everyone with their own bed. Same price for 3 or 4 nights, so the 4th night is free." },
+    fdez: { name: "Fdez Amazing House", short: "Fdez House", sleeps: 10, area: "By the Cathedral and Giralda", rooms: "6 bedrooms · 10 beds · 4 bathrooms", rating: "4.96 (110)", free: true, w2: 3344, w3: 4867, id: "859308948472290005", feature: "Pool",
+      blurb: "The splash-out. Big house with a pool, a bed each, steps from the Giralda." }
+  };
+
+  function gbp(n) { return "£" + Math.round(n).toLocaleString("en-GB"); }
+  function gbp2(n) { return "£" + n.toFixed(2); }
+  function sleeps(ids) { return ids.reduce(function (a, id) { return a + P[id].sleeps; }, 0); }
+  function stayTotal(ids, dates) {
+    var t = 0;
+    for (var i = 0; i < ids.length; i++) { var v = P[ids[i]][dates]; if (v == null) return null; t += v; }
+    return t;
+  }
+  function pp(ids, n, dates, outId) { var t = stayTotal(ids, dates); return t == null ? null : t / n + flight(n, dates, outId); }
+
+  var TIERS = [
+    { key: "b", tag: "t-b", tier: "Budget", dates: "w2",
+      line: "3 nights in cheap central flats, one on the Alameda bar strip.",
+      sizes: { 4: ["s30"], 6: ["virgen"], 8: ["s30", "betis"], 10: ["s30", "virgen"], 16: ["s30", "virgen", "modern"] },
+      example: "For 10: 4 in S30 House in the old town and 6 in Virgen Carmen on Plaza de la Alameda." },
+    { key: "m", tag: "t-m", tier: "Mid-range", dates: "w3",
+      line: "4 nights, so a full day either side of New Year, in comfier flats.",
+      sizes: { 4: ["betis"], 6: ["modern"], 8: ["aoa", "betis"], 10: ["aoa", "modern"], 16: ["aoa", "modern", "patio"] },
+      example: "For 10: 4 on Plaza Nueva and 6 in a 3-bathroom flat in the old town." },
+    { key: "l", tag: "t-l", tier: "Best location", dates: "w3",
+      line: "4 nights in the tapas-bar streets of Alfalfa and Plaza Nueva.",
+      sizes: { 4: ["aoa"], 6: ["patio"], 8: ["aoa", "loft"], 10: ["loft", "patio"], 16: ["cabildo", "patio"] },
+      example: "For 10: 4 in the Alfalfa loft and 6 in Patio de la Magdalena. Rather all be under one roof? Cabildo Cathedral fits 10 by the Cathedral for £595 each." }
+  ];
+  var SIZES = [4, 6, 8, 10, 16];
+  function range(t) { var v = SIZES.map(function (n) { return pp(t.sizes[n], n, t.dates); }); return [Math.min.apply(null, v), Math.max.apply(null, v)]; }
+
+  document.getElementById("packages").innerHTML = TIERS.map(function (t) {
+    var r = range(t), ten = t.sizes[10], tenStay = stayTotal(ten, t.dates);
+    var links = ten.map(function (id) { return "<a href=\"" + room(P[id].id, P[id].sleeps, t.dates) + "\" target=\"_blank\" rel=\"noopener\">" + P[id].name + " ↗</a>"; }).join("");
+    return "<article class=\"opt\"><div class=\"opt-top\"><span class=\"tag " + t.tag + "\">" + t.tier + "</span><span class=\"opt-nights\">" + DATES[t.dates].nights + " nights</span></div>" +
+      "<div><div class=\"opt-price\">" + gbp(r[0]) + "<span class=\"dash\">–</span>" + Math.round(r[1]) + "</div><div class=\"opt-sub\">per person · " + DATES[t.dates].label + "</div></div>" +
+      "<p>" + t.line + "</p>" +
+      "<dl><div><dt>Flights</dt><dd>" + gbp2(flight(10, t.dates)) + "</dd></div>" +
+      "<div><dt>Stay, if 10 come</dt><dd>" + gbp2(tenStay / 10) + "</dd></div>" +
+      "<div><dt>Total, if 10 come</dt><dd>" + gbp(pp(ten, 10, t.dates)) + "</dd></div></dl>" +
+      "<p class=\"opt-where\">" + t.example + "</p><div class=\"opt-links\">" + links + "</div></article>";
+  }).join("");
+
+  document.getElementById("size-table").innerHTML =
+    "<thead><tr><th scope=\"col\">People</th>" + TIERS.map(function (t) { return "<th scope=\"col\" class=\"" + t.key + "\">" + t.tier + " · " + DATES[t.dates].nights + " nts</th>"; }).join("") + "</tr></thead><tbody>" +
+    SIZES.map(function (n) {
+      return "<tr" + (n === 10 ? " class=\"ten\"" : "") + "><th scope=\"row\">" + n + (n === 10 ? "<small>rough guess</small>" : n === 16 ? "<small>flights £12–£20 more</small>" : "") + "</th>" +
+        TIERS.map(function (t) { var ids = t.sizes[n]; return "<td><span class=\"v\">" + gbp(pp(ids, n, t.dates)) + "</span><span class=\"s\">" + ids.map(function (id) { return P[id].short; }).join(" + ") + "</span></td>"; }).join("") + "</tr>";
+    }).join("") + "</tbody>";
+
+  document.getElementById("fl-out").innerHTML = OUT.map(function (f) {
+    return "<tr" + (f.pick ? " class=\"pick\"" : "") + "><td>" + f.day + (f.pick ? "<span class=\"pill\">Cheapest</span>" : "") + "<span class=\"t\">" + f.time + "</span></td><td class=\"p\">" + gbp2(f.p) + "</td></tr>";
+  }).join("");
+  document.getElementById("fl-back").innerHTML = BACK.map(function (f, i) {
+    return "<tr" + (i === 0 ? " class=\"pick\"" : "") + "><td>" + f.day + (i === 0 ? "<span class=\"pill\">Cheapest</span>" : "") + "<span class=\"t\">" + f.time + "</span></td><td class=\"p\">" + gbp2(f.p) + "</td></tr>";
+  }).join("");
+  var combos = [["Wed 30 → Sat 2", "wed_e", "sat"], ["Wed 30 → Sun 3", "wed_e", "sun"], ["Tue 29 → Sat 2", "tue", "sat"], ["Tue 29 → Sun 3", "tue", "sun"]];
+  document.getElementById("fl-combos").innerHTML = combos.map(function (c, i) {
+    return "<tr" + (i === 0 ? " class=\"pick\"" : "") + "><td>" + c[0] + (i === 0 ? "<span class=\"pill\">Cheapest</span>" : "") + "<span class=\"t\">" + (c[1] === "tue" ? "Out 09:10" : "Out 05:50, or 19:00 for £26 more") + "</span></td><td class=\"p\">" + gbp2(fo(c[1]).p + fb(c[2]).p) + "</td></tr>";
+  }).join("");
+
+  var GROUPS = [
+    { name: "Budget", note: "Cheapest central options", ids: ["s30", "virgen", "betis", "edomus"] },
+    { name: "Mid-range", note: "Nicer flats, still central", ids: ["aoa", "modern", "aloha"] },
+    { name: "Best location", note: "In the middle of the restaurants and bars", ids: ["loft", "patio", "cabildo"] },
+    { name: "Splash-out", note: "If everyone's feeling flush", ids: ["fdez"] }
+  ];
+  document.getElementById("tiers").innerHTML = GROUPS.map(function (g) {
+    return "<div class=\"tier\"><div class=\"tier-head\"><h3>" + g.name + "</h3><span>" + g.note + "</span></div><div class=\"places\">" + g.ids.map(function (id) {
+      var p = P[id];
+      var chips = "<span>★ " + p.rating + "</span>" + (p.feature ? "<span class=\"feat\">" + p.feature + "</span>" : "") + (p.free ? "<span class=\"ok\">Free cancellation</span>" : "");
+      function box(lbl, v) {
+        if (v == null) return "<div><span class=\"d\">" + lbl + "</span><span class=\"na\">Not available</span></div>";
+        return "<div><span class=\"d\">" + lbl + "</span><span class=\"t\">" + gbp(v) + "</span><span class=\"e\">" + gbp(v / p.sleeps) + " each if full</span></div>";
+      }
+      return "<article class=\"place\"><div class=\"place-top\"><h4>" + p.name + "</h4><span class=\"sleeps\">Sleeps " + p.sleeps + "</span></div>" +
+        "<div class=\"meta\">" + p.area + " · " + p.rooms + "</div><div class=\"chips\">" + chips + "</div><p>" + p.blurb + "</p>" +
+        "<div class=\"prices\">" + box("30 Dec – 2 Jan · 3 nights", p.w2) + box("30 Dec – 3 Jan · 4 nights", p.w3) + "</div>" +
+        "<div class=\"place-foot\"><a href=\"" + room(p.id, p.sleeps, "w3") + "\" target=\"_blank\" rel=\"noopener\">View on Airbnb ↗</a></div></article>";
+    }).join("") + "</div></div>";
+  }).join("");
+
+  var COMBOS = [["s30"], ["betis"], ["loft"], ["aoa"], ["virgen"], ["modern"], ["patio"],
+    ["s30", "betis"], ["aoa", "loft"], ["aoa", "betis"],
+    ["s30", "virgen"], ["betis", "virgen"], ["loft", "patio"], ["aoa", "modern"], ["aoa", "patio"], ["edomus"], ["aloha"], ["cabildo"], ["fdez"],
+    ["s30", "virgen", "modern"], ["aoa", "modern", "patio"], ["cabildo", "patio"]];
+  var selSize = document.getElementById("b-size"), selDates = document.getElementById("b-dates"), selFlight = document.getElementById("b-flight"), selStay = document.getElementById("b-stay");
+  function fillStays(keep) {
+    var n = Number(selSize.value);
+    var fits = COMBOS.filter(function (c) { var s = sleeps(c); return s >= n && s <= n + 4; });
+    selStay.innerHTML = fits.map(function (c) {
+      return "<option value=\"" + c.join("+") + "\">" + c.map(function (id) { return P[id].short; }).join(" + ") + " (sleeps " + sleeps(c) + ")</option>";
+    }).join("");
+    if (keep && fits.some(function (c) { return c.join("+") === keep; })) selStay.value = keep;
+  }
+  try {
+    var saved = JSON.parse(localStorage.getItem("seville-nye-v4") || "null");
+    if (saved) {
+      if (["4", "6", "8", "10", "16"].indexOf(saved.n) >= 0) selSize.value = saved.n;
+      if (DATES[saved.d]) selDates.value = saved.d;
+      if (saved.f === "e" || saved.f === "l") selFlight.value = saved.f;
+    }
+    fillStays(saved && saved.s);
+  } catch (e) { fillStays(); }
+  function renderBuilder() {
+    var n = Number(selSize.value), ids = selStay.value.split("+"), d = selDates.value, outId = selFlight.value === "e" ? "wed_e" : "wed_l";
+    var t = stayTotal(ids, d), out = document.getElementById("b-out");
+    if (t == null) { out.innerHTML = "<span class=\"na\">One of these isn't free 30 Dec – 2 Jan. Try 4 nights to Sun 3 Jan.</span>"; return; }
+    var f = flight(n, d, outId);
+    out.innerHTML = "<span class=\"big\">" + gbp(t / n + f) + "<small>per person</small></span><span class=\"bd\">flights " + gbp2(f) + " + stay " + gbp2(t / n) + " · stay total " + gbp(t) + " split " + n + " ways</span>";
+    try { localStorage.setItem("seville-nye-v4", JSON.stringify({ n: selSize.value, d: d, f: selFlight.value, s: selStay.value })); } catch (e) {}
+  }
+  selSize.addEventListener("change", function () { fillStays(selStay.value); renderBuilder(); });
+  [selDates, selFlight, selStay].forEach(function (el) { el.addEventListener("change", renderBuilder); });
+  renderBuilder();
+
+  function summaryText() {
+    var lines = ["Seville for New Year 🍇 Ryanair direct from Manchester + Airbnb flats. Rough cost per person (works for anything from 4 to 16 of us):", ""];
+    TIERS.forEach(function (t) {
+      var r = range(t);
+      lines.push("• " + t.tier + ": " + gbp(r[0]) + "–" + Math.round(r[1]) + " — " + DATES[t.dates].label + " (" + DATES[t.dates].nights + " nights). " + t.line);
+    });
+    lines.push("");
+    lines.push("Flights alone: " + gbp2(flight(10, "w2")) + " back Sat 2nd, " + gbp2(flight(10, "w3")) + " back Sun 3rd (out Wed 30th 05:50).");
+    lines.push("Full details: https://edwardiudslbfiuflij.github.io/seville-new-year/");
+    lines.push("Prices checked 18 Oct, bags extra. Who's in, and budget, mid-range or best location?");
+    return lines.join("\n");
+  }
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var text = summaryText(), ok = document.getElementById("copied"), ta = document.getElementById("copyFallback");
+    function fallback() { ta.value = text; ta.hidden = false; ta.focus(); ta.select(); }
+    try { navigator.clipboard.writeText(text).then(function () { ok.hidden = false; ta.hidden = true; setTimeout(function () { ok.hidden = true; }, 2000); }, fallback); }
+    catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</body>
+</html>
